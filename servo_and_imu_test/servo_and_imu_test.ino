@@ -48,18 +48,14 @@ void loop() {
   
   roll = 0.96 * (roll + gx * dt) + 0.04 * rollAcc;
 
-  // 3. Map Roll to Servo
-  // Assuming 'level' is 0 degrees. We map -90 to +90 sensor tilt to 0 to 180 servo tilt.
   int servoPos = map(roll, -90, 90, 0, 180);
   
-  // Constrain to prevent the servo from trying to move past its physical limits
   servoPos = constrain(servoPos, 0, 180);
 
   rollServo.write(180-servoPos);
 
-  // Optional: Debug to Serial Monitor
   Serial.print("Roll: "); Serial.print(roll);
   Serial.print(" -> Servo: "); Serial.println(servoPos);
 
-  delay(15); // Small delay for servo stability
+  delay(15);
 }
