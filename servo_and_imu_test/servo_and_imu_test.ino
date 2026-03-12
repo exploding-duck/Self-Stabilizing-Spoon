@@ -4,6 +4,8 @@
 #include <Wire.h>
 #include <Servo.h>
 
+#define REFRESH_INTERVAL 5000
+
 Adafruit_ICM20948 icm;
 Servo rollServo;
 
